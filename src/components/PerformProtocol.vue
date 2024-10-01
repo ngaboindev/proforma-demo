@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ExecuteProtocol :protocol="protocol" />
+    <ExecuteProtocol :protocol="protocolObj" />
   </div>
 </template>
 
@@ -13,18 +13,10 @@ export default {
   components: {
     ExecuteProtocol
   },
-  data() {
-    return {
-      protocol: null
-    }
-  },
-  methods: {
-    getProtocol() {
+  computed: {
+    protocolObj() {
       return new Protocol[protocolObj.class](protocolObj)
     }
-  },
-  mounted() {
-    this.protocol = this.getProtocol()
   }
 }
 </script>
