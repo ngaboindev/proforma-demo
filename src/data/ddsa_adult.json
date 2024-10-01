@@ -1,0 +1,3097 @@
+{
+  "meta": {
+    "svg": {
+      "height": 400,
+      "width": 1000
+    },
+    "priority": 0,
+    "lastUpdated": "2024-09-25T16:53:51.393Z"
+  },
+  "caption": "DDSA (adults) - 8th version",
+  "description": "Prototype implementation of DDSA (adults)",
+  "name": "ddsa_adult8",
+  "autonomous": true,
+  "dataDefinitions": [
+    {
+      "caption": "Age",
+      "name": "age",
+      "class": "Integer"
+    },
+    {
+      "caption": "Sex",
+      "name": "gender",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Male"
+        },
+        {
+          "value": 2,
+          "caption": "Female"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Emergency conditions",
+      "name": "signs_emergency",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Obstructed airway"
+        },
+        {
+          "value": 2,
+          "caption": "Severe respiratory distress"
+        },
+        {
+          "value": 5,
+          "caption": "Resuscitated respiratory arrest"
+        },
+        {
+          "value": 4,
+          "caption": "Resuscitated cardiac arrest"
+        },
+        {
+          "value": 6,
+          "caption": "Chest pain indicative of myorcardial infarction"
+        },
+        {
+          "value": 7,
+          "caption": "Chest pain indicative of unstable angina"
+        },
+        {
+          "value": 9,
+          "caption": "Focal Neurology (acute) stroke"
+        },
+        {
+          "value": 10,
+          "caption": "Stabbed neck"
+        },
+        {
+          "value": 11,
+          "caption": "Hemorrhage uncontrolled (arterial bleed)"
+        },
+        {
+          "value": 29,
+          "caption": "Coma, other"
+        },
+        {
+          "value": 30,
+          "caption": "Polytrauma"
+        },
+        {
+          "value": 13,
+          "caption": "Threatened limb"
+        },
+        {
+          "value": 15,
+          "caption": "Fracture compound (with a break in the skin)"
+        },
+        {
+          "value": 16,
+          "caption": "Pelvic fracture"
+        },
+        {
+          "value": 33,
+          "caption": "Chest trauma"
+        },
+        {
+          "value": 34,
+          "caption": "Abdominal trauma"
+        },
+        {
+          "value": 18,
+          "caption": "Facial or inhalation burn"
+        },
+        {
+          "value": 19,
+          "caption": "Burn over 30%"
+        },
+        {
+          "value": 20,
+          "caption": "Burn electrical"
+        },
+        {
+          "value": 21,
+          "caption": "Burn chemical (or thermal) over 30%"
+        },
+        {
+          "value": 22,
+          "caption": "Burn circumferential"
+        },
+        {
+          "value": 23,
+          "caption": "Genital burn"
+        },
+        {
+          "value": 24,
+          "caption": "Poison/overdose (not alcohol)"
+        },
+        {
+          "value": 25,
+          "caption": "Vomiting fresh blood (Haematemesis)"
+        },
+        {
+          "value": 26,
+          "caption": "Diabetic/disordered blood glucose and unresponsive"
+        },
+        {
+          "value": 27,
+          "caption": "Alcohol intoxication and unresponsive"
+        },
+        {
+          "value": 31,
+          "caption": "Severe Sepsis"
+        },
+        {
+          "value": 0,
+          "caption": "No emergency conditions"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Very urgent conditions",
+      "name": "signs_very_urgent",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Level of conciousness reduced/confused, other"
+        },
+        {
+          "value": 24,
+          "caption": "Seizures (current)"
+        },
+        {
+          "value": 2,
+          "caption": "Seizure postictal"
+        },
+        {
+          "value": 17,
+          "caption": "Severe headache"
+        },
+        {
+          "value": 4,
+          "caption": "Shortness of breath"
+        },
+        {
+          "value": 18,
+          "caption": "Head injury"
+        },
+        {
+          "value": 25,
+          "caption": "Eye injury"
+        },
+        {
+          "value": 26,
+          "caption": "Dislocation of hip"
+        },
+        {
+          "value": 20,
+          "caption": "Dislocation of shoulder"
+        },
+        {
+          "value": 21,
+          "caption": "Dislocation of elbow"
+        },
+        {
+          "value": 23,
+          "caption": "Other injury caused by high energy mechanism"
+        },
+        {
+          "value": 6,
+          "caption": "Fracture closed (no break in skin)"
+        },
+        {
+          "value": 7,
+          "caption": "Burn less than 30%"
+        },
+        {
+          "value": 8,
+          "caption": "Burn chemical (or thermal) less than 30%"
+        },
+        {
+          "value": 9,
+          "caption": "Diabetic/disordered blood glucose and responsive"
+        },
+        {
+          "value": 10,
+          "caption": "Coughing blood"
+        },
+        {
+          "value": 11,
+          "caption": "Vomiting persistent"
+        },
+        {
+          "value": 12,
+          "caption": "Severe diarrhea"
+        },
+        {
+          "value": 27,
+          "caption": "Severe malaria"
+        },
+        {
+          "value": 13,
+          "caption": "Severe pain"
+        },
+        {
+          "value": 14,
+          "caption": "Unexplained aggression"
+        },
+        {
+          "value": 15,
+          "caption": "Alcohol Intoxication and not unresponsive"
+        },
+        {
+          "value": 28,
+          "caption": "Palliative care required"
+        },
+        {
+          "value": 16,
+          "caption": "Sexual assault and trauma"
+        },
+        {
+          "value": 0,
+          "caption": "No very urgent conditions"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Urgent conditions",
+      "name": "signs_urgent",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Haemorrhage (controlled)"
+        },
+        {
+          "value": 7,
+          "caption": "Moderate pain"
+        },
+        {
+          "value": 0,
+          "caption": "No urgent conditions"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Tews",
+      "name": "tews",
+      "valueCondition": "tews_mobility + tews_rr + tews_hr + tews_sbp + tews_temp + tews_avpu + tews_trauma",
+      "class": "Integer"
+    },
+    {
+      "caption": "Mobility",
+      "name": "mobility",
+      "range": ["Walking", "With help", "Stretcher/immobile"],
+      "class": "Text"
+    },
+    {
+      "caption": "Respiration rate (breaths/min)",
+      "name": "rr",
+      "class": "Integer"
+    },
+    {
+      "caption": "Pulse (beats/min)",
+      "name": "hr",
+      "class": "Integer"
+    },
+    {
+      "caption": "Systolic blood pressure (mmHg)",
+      "name": "sbp",
+      "class": "Float"
+    },
+    {
+      "caption": "Diastolic blood pressure (mmHg)",
+      "name": "dbp",
+      "class": "Float"
+    },
+    {
+      "caption": "Temperature (deg C)",
+      "name": "temp",
+      "class": "Float"
+    },
+    {
+      "caption": "AVPU Level of Response",
+      "description": "Alert, Voice, Pain, Unresponsive (AVPU)",
+      "name": "avpu",
+      "range": ["Alert", "Confused", "Reacts to Voice", "Reacts to Pain", "Unresponsive"],
+      "valueCondition": "is_known('gcs') ? (gcs>13 ? 'Alert' : (gcs==13 ? 'Confused' : ((gcs >= 9 && gcs <= 12) ? 'Reacts to Voice' : ((gcs >= 2 && gcs <=8) ? 'Reacts to Pain' : 'Unresponsive')))) : undefined",
+      "class": "Text"
+    },
+    {
+      "caption": "Signs of trauma?",
+      "name": "trauma",
+      "range": [
+        {
+          "value": true,
+          "caption": "Yes"
+        },
+        {
+          "value": false,
+          "caption": "No"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "Temperature",
+      "name": "temp_qual",
+      "range": ["Normal", "Hot", "Cold"],
+      "class": "Text"
+    },
+    {
+      "caption": "tews (mobility)",
+      "name": "tews_mobility",
+      "valueCondition": "is_known('mobility') ? (mobility=='Stretcher/immobile' ? 2 : (mobility=='With help' ? 1 : 0)) : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "tews (rr)",
+      "name": "tews_rr",
+      "valueCondition": "is_known('rr') ? (rr>29? 3 : ((rr<9 || (rr>20 && rr<30)) ? 2 : ((rr>14 && rr<21) ? 1 : 0))) : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "tews (hr)",
+      "name": "tews_hr",
+      "valueCondition": "is_known('hr') ? (   hr>129 ? 3 : (     (hr<41 || (hr>110 && hr < 130)) ? 2 : (       ((hr>40 && hr<51) || (hr>100 && hr<111)) ? 1 : 0     )    ) ) : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "tews (sbp)",
+      "name": "tews_sbp",
+      "valueCondition": "is_known('sbp') ? (   sbp<71 ? 3 : (     ((sbp>70 && sbp<81) || (sbp>199)) ? 2 : (       (sbp>80 && sbp<101) ? 1 : 0    )   ) ) : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "tews (temp)",
+      "name": "tews_temp",
+      "valueCondition": "(is_known('temp_qual') && (temp_qual=='Hot' || temp_qual=='Cold')) || (is_known('temp') && (temp<35.0 || temp>38.4)) ? 2 : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "tews (avpu)",
+      "name": "tews_avpu",
+      "valueCondition": "is_known('avpu') ? (   avpu=='Unresponsive' ? 3 : (     avpu=='Confused' || avpu=='Reacts to Pain' ? 2 : (       avpu=='Reacts to Voice' ? 1 : 0     )   ) ) : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "tews (trauma)",
+      "name": "tews_trauma",
+      "valueCondition": "is_known('trauma') ? ( trauma ? 1 : 0) : 0",
+      "class": "Integer"
+    },
+    {
+      "caption": "Is the patient pregnant?",
+      "name": "pregnant",
+      "range": [
+        {
+          "value": 0,
+          "caption": "No"
+        },
+        {
+          "value": 1,
+          "caption": "Yes"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Gestational age (weeks)",
+      "description": "How many weeks along is the pregnancy",
+      "name": "gestational_age",
+      "class": "Integer"
+    },
+    {
+      "caption": "Is the patient alive?",
+      "name": "alive",
+      "range": [
+        {
+          "value": false,
+          "caption": "No"
+        },
+        {
+          "value": true,
+          "caption": "Yes"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "Record blood glucose (mmol/L)",
+      "name": "glucose",
+      "valueCondition": "is_known('glucose_unit') && is_known('glucose_value') ? (glucose_unit == 'mmol/l' ? glucose_value : glucose_value/18 ) : undefined",
+      "class": "Float"
+    },
+    {
+      "caption": "Pregnancy conditions",
+      "name": "signs_pregnant",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Unresponsive"
+        },
+        {
+          "value": 2,
+          "caption": "Seizure"
+        },
+        {
+          "value": 3,
+          "caption": "Delivery complications"
+        },
+        {
+          "value": 6,
+          "caption": "Abdominal trauma"
+        },
+        {
+          "value": 4,
+          "caption": "Headache/hypertension/pre-eclampsia"
+        },
+        {
+          "value": 5,
+          "caption": "Pregnancy and abnormal abdominal pain"
+        },
+        {
+          "value": 7,
+          "caption": "PV bleeding"
+        },
+        {
+          "value": 8,
+          "caption": "Suspected miscarriage"
+        },
+        {
+          "value": 9,
+          "caption": "Normal labor/delivery"
+        },
+        {
+          "value": -1,
+          "caption": "Pregnancy is not the reason for need of ambulance"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Signs_pregnant_urgent",
+      "name": "signs_pregnant_urgent",
+      "valueCondition": "is_known('signs_pregnant') && signs_pregnant>0 && signs_pregnant<4",
+      "class": "Integer"
+    },
+    {
+      "caption": "Measure O2 saturation (%)",
+      "name": "o2sats",
+      "class": "Integer"
+    },
+    {
+      "caption": "O2 saturation unavailable",
+      "name": "o2sats_unavailable",
+      "range": [
+        {
+          "value": false,
+          "caption": "No"
+        },
+        {
+          "value": true,
+          "caption": "Yes"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "Past medical history",
+      "name": "hx",
+      "range": [
+        {
+          "value": -1,
+          "caption": "None"
+        },
+        {
+          "value": -2,
+          "caption": "Unknown"
+        },
+        {
+          "value": 13,
+          "caption": "Allergy"
+        },
+        {
+          "value": 1,
+          "caption": "Asthma"
+        },
+        {
+          "value": 7,
+          "caption": "Cancer"
+        },
+        {
+          "value": 2,
+          "caption": "Cardiac"
+        },
+        {
+          "value": 8,
+          "caption": "Diabetes"
+        },
+        {
+          "value": 9,
+          "caption": "HTN"
+        },
+        {
+          "value": 3,
+          "caption": "COPD"
+        },
+        {
+          "value": 14,
+          "caption": "Gastro-intestinal condition"
+        },
+        {
+          "value": 4,
+          "caption": "Renal disease"
+        },
+        {
+          "value": 5,
+          "caption": "Seizure"
+        },
+        {
+          "value": 6,
+          "caption": "Stroke"
+        },
+        {
+          "value": 15,
+          "caption": "Mental disorder"
+        },
+        {
+          "value": 10,
+          "caption": "HIV"
+        },
+        {
+          "value": 16,
+          "caption": "Previous surgery"
+        },
+        {
+          "value": 12,
+          "caption": "Genetic condition"
+        },
+        {
+          "value": 99,
+          "caption": "Other"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Road traffic incident details",
+      "name": "mechanism_rta",
+      "range": [
+        {
+          "value": 3,
+          "caption": "Car only"
+        },
+        {
+          "value": 4,
+          "caption": "Car - pedestrian"
+        },
+        {
+          "value": 2,
+          "caption": "Car - bike"
+        },
+        {
+          "value": 5,
+          "caption": "Moto - car"
+        },
+        {
+          "value": 6,
+          "caption": "Moto - moto"
+        },
+        {
+          "value": 7,
+          "caption": "Moto only"
+        },
+        {
+          "value": 8,
+          "caption": "Bike"
+        },
+        {
+          "value": 9,
+          "caption": "Bike - moto"
+        },
+        {
+          "value": 10,
+          "caption": "Bike - pedestrian"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Mechanism of injury",
+      "name": "mechanism",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Physical assault"
+        },
+        {
+          "value": 17,
+          "caption": "Sexual assault"
+        },
+        {
+          "value": 2,
+          "caption": "Fall"
+        },
+        {
+          "value": 3,
+          "caption": "Road traffic accident"
+        },
+        {
+          "value": 11,
+          "caption": "Stab"
+        },
+        {
+          "value": 12,
+          "caption": "Burn"
+        },
+        {
+          "value": 13,
+          "caption": "Drowning"
+        },
+        {
+          "value": 14,
+          "caption": "Structure collapse"
+        },
+        {
+          "value": 15,
+          "caption": "Explosion"
+        },
+        {
+          "value": 16,
+          "caption": "Land slide"
+        },
+        {
+          "value": 17,
+          "caption": "Gunshot"
+        },
+        {
+          "value": -1,
+          "caption": "Unknown"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Body part affected",
+      "name": "body_part",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Head"
+        },
+        {
+          "value": 2,
+          "caption": "Neck"
+        },
+        {
+          "value": 3,
+          "caption": "Chest"
+        },
+        {
+          "value": 4,
+          "caption": "Abdomen"
+        },
+        {
+          "value": 5,
+          "caption": "Back/spine"
+        },
+        {
+          "value": 6,
+          "caption": "Pelvis"
+        },
+        {
+          "value": 7,
+          "caption": "Left Upper extremity"
+        },
+        {
+          "value": 8,
+          "caption": "Right Upper extremity"
+        },
+        {
+          "value": 9,
+          "caption": "Left lower extremity"
+        },
+        {
+          "value": 10,
+          "caption": "Right lower extremity"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Type of injury",
+      "name": "injury_type",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Laceration"
+        },
+        {
+          "value": 11,
+          "caption": "Sharp or blunt penetrating injury"
+        },
+        {
+          "value": 2,
+          "caption": "Abrasion"
+        },
+        {
+          "value": 3,
+          "caption": "Dislocation"
+        },
+        {
+          "value": 4,
+          "caption": "Fracture"
+        },
+        {
+          "value": 5,
+          "caption": "Wound"
+        },
+        {
+          "value": 7,
+          "caption": "Swelling/Contusion"
+        },
+        {
+          "value": 8,
+          "caption": "Burn"
+        },
+        {
+          "value": 10,
+          "caption": "Dislocation"
+        },
+        {
+          "value": 9,
+          "caption": "Others"
+        },
+        {
+          "value": -1,
+          "caption": "Unknown"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Substance history",
+      "name": "social_hx",
+      "range": [
+        {
+          "value": -1,
+          "caption": "None"
+        },
+        {
+          "value": -2,
+          "caption": "Unknown"
+        },
+        {
+          "value": 1,
+          "caption": "Alcohol"
+        },
+        {
+          "value": 2,
+          "caption": "Drug"
+        },
+        {
+          "value": 3,
+          "caption": "Tobacco"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "O2 saturation available?",
+      "name": "o2_available",
+      "range": [
+        {
+          "value": true,
+          "caption": "Yes"
+        },
+        {
+          "value": false,
+          "caption": "No"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "O2 sats (measurement)",
+      "name": "o2sats_option",
+      "range": [
+        {
+          "value": 1,
+          "caption": "room/air"
+        },
+        {
+          "value": 2,
+          "caption": "with o2 administered"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Management provided by ambulance team",
+      "name": "management",
+      "range": [
+        {
+          "value": 1,
+          "caption": "c-stabilisation"
+        },
+        {
+          "value": 2,
+          "caption": "bvm or nasal cannulae + oxygen"
+        },
+        {
+          "value": 3,
+          "caption": "Intubated & oxygen"
+        },
+        {
+          "value": 4,
+          "caption": "Suction"
+        },
+        {
+          "value": 5,
+          "caption": "CPR"
+        },
+        {
+          "value": 6,
+          "caption": "Spine board"
+        },
+        {
+          "value": 7,
+          "caption": "Vacuum mat"
+        },
+        {
+          "value": 8,
+          "caption": "Splinting"
+        },
+        {
+          "value": 9,
+          "caption": "Local compression"
+        },
+        {
+          "value": 10,
+          "caption": "Tourniquet"
+        },
+        {
+          "value": 11,
+          "caption": "Wound care"
+        },
+        {
+          "value": 12,
+          "caption": "IV line"
+        },
+        {
+          "value": 13,
+          "caption": "IO Infusion"
+        },
+        {
+          "value": 15,
+          "caption": "Cardiac monitor"
+        },
+        {
+          "value": 14,
+          "caption": "Warming"
+        },
+        {
+          "value": -1,
+          "caption": "None"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Please specify cause of death",
+      "name": "cod",
+      "class": "Text"
+    },
+    {
+      "caption": "Abortion",
+      "name": "num_abortions",
+      "class": "Integer"
+    },
+    {
+      "caption": "Pregnancy",
+      "name": "num_pregnancies",
+      "class": "Integer"
+    },
+    {
+      "caption": "Live birth",
+      "name": "num_live_births",
+      "class": "Integer"
+    },
+    {
+      "caption": "Fetal heart rate (beats/min)",
+      "name": "hr_fetal",
+      "class": "Integer"
+    },
+    {
+      "caption": "Please check the relevant features of this pregnancy",
+      "name": "pregnancy_features",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Diabetes"
+        },
+        {
+          "value": 2,
+          "caption": "Pre-eclampsia"
+        },
+        {
+          "value": 3,
+          "caption": "Eclampsia"
+        },
+        {
+          "value": 4,
+          "caption": "Ruptured Membranes"
+        },
+        {
+          "value": 5,
+          "caption": "Contractions"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Please check the relevant features of delivery",
+      "name": "delivery_features",
+      "range": [
+        {
+          "value": 7,
+          "caption": "Meconium"
+        },
+        {
+          "value": 8,
+          "caption": "Cord prolapse"
+        },
+        {
+          "value": 10,
+          "caption": "Cord pulse"
+        },
+        {
+          "value": 9,
+          "caption": "Uterine massage"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Dilation (cm)",
+      "name": "dilation",
+      "class": "Integer"
+    },
+    {
+      "caption": "APGAR 1 min",
+      "name": "apgar1",
+      "class": "Integer"
+    },
+    {
+      "caption": "APGAR 5 min",
+      "name": "apgar2",
+      "class": "Integer"
+    },
+    {
+      "caption": "Baby delivered",
+      "name": "delivery",
+      "range": [
+        {
+          "value": true,
+          "caption": "Yes"
+        },
+        {
+          "value": false,
+          "caption": "No"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "Please provide details of location of tourniquet",
+      "name": "management_tourniquet",
+      "class": "Text"
+    },
+    {
+      "caption": "Please provide details of IO infusion",
+      "name": "management_infusion",
+      "class": "Text"
+    },
+    {
+      "caption": "Glucose units",
+      "name": "glucose_unit",
+      "range": ["mmol/l", "mg/dl"],
+      "class": "Text"
+    },
+    {
+      "caption": "Glucose measurement is indicated. Check *No* if this is not possible.",
+      "name": "glucose_available",
+      "range": [
+        {
+          "value": true,
+          "caption": "Yes"
+        },
+        {
+          "value": false,
+          "caption": "No"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "First Name",
+      "name": "givenName",
+      "class": "Text"
+    },
+    {
+      "caption": "Last Name",
+      "name": "familyName",
+      "class": "Text"
+    },
+    {
+      "caption": "Please specify the injury type",
+      "description": "You checked \"others\" for injury type",
+      "name": "injury_type_others",
+      "class": "Text"
+    },
+    {
+      "caption": "Cause of trauma",
+      "description": "Was the trauma intentional or accidental?",
+      "name": "trauma_cause",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Unintentional"
+        },
+        {
+          "value": 2,
+          "caption": "Intentional"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Non-urgent conditions",
+      "name": "signs_non_urgent",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Dislocated finger or toe"
+        },
+        {
+          "value": 2,
+          "caption": "Injury minor, other"
+        },
+        {
+          "value": 3,
+          "caption": "Gastrointestinal, other"
+        },
+        {
+          "value": 4,
+          "caption": "Respiratory, other"
+        },
+        {
+          "value": 5,
+          "caption": "Infectious disease, other"
+        },
+        {
+          "value": 6,
+          "caption": "Headache"
+        },
+        {
+          "value": 7,
+          "caption": "Frailty"
+        },
+        {
+          "value": 8,
+          "caption": "Uncomplicated mental health issue"
+        },
+        {
+          "value": -1,
+          "caption": "Other (specify)"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "GCS eye opening",
+      "description": "1-4",
+      "name": "gcs_e",
+      "range": [
+        {
+          "value": 4,
+          "caption": "Spontaneous (=4)"
+        },
+        {
+          "value": 3,
+          "caption": "Verbal (=3)"
+        },
+        {
+          "value": 2,
+          "caption": "Pain (=2)"
+        },
+        {
+          "value": 1,
+          "caption": "None (=1)"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "GCS motor",
+      "description": "1-6",
+      "name": "gcs_m",
+      "range": [
+        {
+          "value": 6,
+          "caption": "Obeys commands (=6)"
+        },
+        {
+          "value": 5,
+          "caption": "Localises to pain (=5)"
+        },
+        {
+          "value": 4,
+          "caption": "Withdraws from pain (=4)"
+        },
+        {
+          "value": 3,
+          "caption": "Flexes to pain (=3)"
+        },
+        {
+          "value": 2,
+          "caption": "Extends to pain (=2)"
+        },
+        {
+          "value": 1,
+          "caption": "None (=1)"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "GCS verbal",
+      "description": "1-5",
+      "name": "gcs_v",
+      "range": [
+        {
+          "value": 5,
+          "caption": "Orientated (=5)"
+        },
+        {
+          "value": 4,
+          "caption": "Confused (=4)"
+        },
+        {
+          "value": 3,
+          "caption": "Innapropriate words (=3)"
+        },
+        {
+          "value": 2,
+          "caption": "Incomprehensible sounds (=2)"
+        },
+        {
+          "value": 1,
+          "caption": "None (=1)"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Glasgow Coma Score (quick)",
+      "description": "3-15",
+      "name": "gcs_quick",
+      "class": "Integer"
+    },
+    {
+      "caption": "Glasgow Coma Score",
+      "description": "A number between 0 and 15",
+      "name": "gcs",
+      "valueCondition": "is_known('gcs_quick') ? gcs_quick : (is_known('gcs_e') && is_known('gcs_m') && is_known('gcs_v') ? gcs_e + gcs_m + gcs_v : undefined)",
+      "class": "Integer"
+    },
+    {
+      "caption": "Insurance",
+      "name": "insurance",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Category A: MUSA"
+        },
+        {
+          "value": 2,
+          "caption": "Category B: MMI, RSSB"
+        },
+        {
+          "value": 3,
+          "caption": "Category C: Sanlam, Britam"
+        },
+        {
+          "value": 4,
+          "caption": "Category D: Private, No insurance"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Glucose reading",
+      "name": "glucose_value",
+      "class": "Float"
+    },
+    {
+      "caption": "Please specify the patient's condition",
+      "name": "signs_other",
+      "class": "Text"
+    },
+    {
+      "caption": "Glucose_concern",
+      "name": "glucose_concern",
+      "valueCondition": "includes([9,29,26], signs_emergency) || includes([2,14], signs_very_urgent) ||( is_known('gcs') && gcs<13) ",
+      "class": "Boolean"
+    },
+    {
+      "caption": "Possible_pregnancy_issue",
+      "name": "possible_pregnancy_issue",
+      "valueCondition": "is_known('pregnant') && pregnant>0 && is_known('signs_pregnant') && signs_pregnant>-1",
+      "class": "Integer"
+    },
+    {
+      "caption": "Airway",
+      "name": "airway",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Patent"
+        },
+        {
+          "value": 2,
+          "caption": "Obstructed"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Breathing",
+      "name": "breathing",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Normal"
+        },
+        {
+          "value": 2,
+          "caption": "Labored"
+        },
+        {
+          "value": 3,
+          "caption": "Wheezing"
+        },
+        {
+          "value": 4,
+          "caption": "Critical distress"
+        },
+        {
+          "value": 5,
+          "caption": "Absent"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Circulation",
+      "name": "circulation",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Pulse present and normal"
+        },
+        {
+          "value": 2,
+          "caption": "Pulse present and weak"
+        },
+        {
+          "value": 3,
+          "caption": "Pulse absent"
+        }
+      ],
+      "class": "Integer"
+    },
+    {
+      "caption": "Pupils",
+      "name": "pupils",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Both normal and reactive"
+        },
+        {
+          "value": 2,
+          "caption": "R dilated"
+        },
+        {
+          "value": 3,
+          "caption": "R constricted"
+        },
+        {
+          "value": 4,
+          "caption": "L dilated"
+        },
+        {
+          "value": 5,
+          "caption": "L constricted"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Please specify",
+      "description": "Please provide more details if you've entered \"Severe pain\" or \"Palliative care required\"",
+      "name": "signs_very_urgent_specify",
+      "class": "Text"
+    },
+    {
+      "caption": "Please specify the pain",
+      "name": "signs_urgent_specify",
+      "class": "Text"
+    },
+    {
+      "caption": "LMP",
+      "description": "Last Menstrual Period",
+      "name": "lmp",
+      "class": "Date"
+    },
+    {
+      "caption": "Does the patient have pain?",
+      "name": "pain_present",
+      "range": [
+        {
+          "value": true,
+          "caption": "Yes"
+        },
+        {
+          "value": false,
+          "caption": "No"
+        }
+      ],
+      "class": "Boolean"
+    },
+    {
+      "caption": "Pain location",
+      "name": "pain_location",
+      "range": [
+        {
+          "value": 1,
+          "caption": "Head"
+        },
+        {
+          "value": 2,
+          "caption": "Neck"
+        },
+        {
+          "value": 3,
+          "caption": "Chest"
+        },
+        {
+          "value": 4,
+          "caption": "Abdomen"
+        },
+        {
+          "value": 5,
+          "caption": "Left upper extremity"
+        },
+        {
+          "value": 6,
+          "caption": "Right upper extremity"
+        },
+        {
+          "value": 7,
+          "caption": "Left lower extremity"
+        },
+        {
+          "value": 8,
+          "caption": "Right lower extremity"
+        }
+      ],
+      "multiValued": true,
+      "class": "Integer"
+    },
+    {
+      "caption": "Pain score",
+      "description": "0 - 10",
+      "name": "pain_score",
+      "class": "Integer"
+    }
+  ],
+  "tasks": [
+    {
+      "meta": {
+        "pos": {
+          "x": 65.04156581255347,
+          "y": 131.87322053258475
+        }
+      },
+      "caption": "Screens",
+      "name": "screens",
+      "autonomous": true,
+      "tasks": [
+        {
+          "meta": {
+            "pos": {
+              "x": 76.71515141603686,
+              "y": 242.27400377951224
+            }
+          },
+          "caption": "Patient details",
+          "name": "screen2",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 85.21647600090913,
+                  "y": 109.8009466327195
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  }
+                }
+              },
+              "caption": "Patient details",
+              "name": "patient_details",
+              "sources": [
+                {
+                  "type": "age",
+                  "class": "Source"
+                },
+                {
+                  "type": "gender",
+                  "requestCondition": "!is_known('gender')",
+                  "class": "Source"
+                },
+                {
+                  "type": "givenName",
+                  "class": "Source"
+                },
+                {
+                  "type": "familyName",
+                  "class": "Source"
+                },
+                {
+                  "type": "alive",
+                  "requestCondition": "!is_known('alive')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 363.35075501297047,
+                  "y": 112.0164690946958
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Pregnancy status",
+              "name": "check_pregnant",
+              "preCondition": "is_completed('rapid_survey') && gender==2 &&  (!is_known('age') || (age>=12    &&    age<55))",
+              "waitCondition": "is_finished('rapid_survey')",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "pregnant",
+                  "requestCondition": "!is_known('pregnant')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 518.0637859758093,
+                  "y": 112.0164690946958
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Pregnancy conditions",
+              "name": "pregnancy",
+              "preCondition": "is_completed('check_pregnant') && pregnant>0",
+              "waitCondition": "is_finished('check_pregnant')",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "signs_pregnant",
+                  "requestCondition": "!is_known('signs_pregnant')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 216.12039195602426,
+                  "y": 110.82661293967158
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  }
+                }
+              },
+              "caption": "Rapid Survey",
+              "name": "rapid_survey",
+              "preCondition": "is_completed('patient_details') && alive  &&  (!is_known('age') || age>=12)",
+              "waitCondition": "is_finished('patient_details')",
+              "sources": [
+                {
+                  "type": "airway",
+                  "requestCondition": "!is_known('airway')",
+                  "class": "Source"
+                },
+                {
+                  "type": "breathing",
+                  "requestCondition": "!is_known('breathing')",
+                  "class": "Source"
+                },
+                {
+                  "type": "circulation",
+                  "requestCondition": "!is_known('circulation')",
+                  "class": "Source"
+                },
+                {
+                  "meta": {
+                    "ui": {
+                      "singleValuedOverride": [1]
+                    }
+                  },
+                  "type": "pupils",
+                  "requestCondition": "!is_known('pupils')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 208.60662642903657,
+              "y": 89.04204656330998
+            }
+          },
+          "caption": "Emergency Signs",
+          "name": "screen3",
+          "preCondition": "is_completed('screen2') && (!is_known('age') || age>=12) && alive && (!pregnant || signs_pregnant==-1)",
+          "waitCondition": "is_finished('screen2')",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 143.30237962582382,
+                  "y": 104.3563859617253
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Emergency conditions",
+              "name": "check_emergency_signs",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "signs_emergency",
+                  "requestCondition": "!is_known('signs_emergency')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 333.74069068068246,
+                  "y": 101.76141954505889
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true,
+                    "showRequestedOnly": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Oxygen",
+              "name": "check_o2",
+              "preCondition": "is_completed('check_emergency_signs') && signs_emergency == 2",
+              "waitCondition": "is_finished('check_emergency_signs')",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "o2_available",
+                  "requestCondition": "!is_known('o2_available')",
+                  "class": "Source"
+                },
+                {
+                  "type": "o2sats",
+                  "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+                  "class": "Source"
+                },
+                {
+                  "type": "o2sats_option",
+                  "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 825.0274620412534,
+              "y": 238.75944606672232
+            }
+          },
+          "caption": "Screen 6",
+          "name": "screen6",
+          "preCondition": "num_completed(['screen2','screen5a'])>0 && (!is_known('age') || age>=12) && ((is_known('signs_emergency') && signs_emergency == 0) || (is_known('signs_pregnant') && !signs_pregnant_urgent && signs_pregnant!=6 && signs_pregnant!=-1) || (((is_known('signs_emergency') && signs_emergency==2) || (is_known('signs_very_urgent') && signs_very_urgent==4)) && is_known('o2sats') && o2sats>90))",
+          "waitCondition": "num_finished(['screen2','screen5a'])==2",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 240.27117816592676,
+                  "y": 97.19989925410033
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  }
+                }
+              },
+              "caption": "TEWS",
+              "description": "${is_known('gcs') ? 'GCS: ' + gcs : ''}",
+              "name": "vitals",
+              "preCondition": "!is_known('glucose') || (glucose>3 && glucose<11)",
+              "sources": [
+                {
+                  "type": "rr",
+                  "requestCondition": "!is_known('rr')",
+                  "class": "Source"
+                },
+                {
+                  "type": "hr",
+                  "requestCondition": "!is_known('hr')",
+                  "class": "Source"
+                },
+                {
+                  "type": "sbp",
+                  "requestCondition": "!is_known('sbp')",
+                  "class": "Source"
+                },
+                {
+                  "type": "dbp",
+                  "requestCondition": "!is_known('dbp')",
+                  "class": "Source"
+                },
+                {
+                  "type": "temp_qual",
+                  "requestCondition": "!is_known('temp_qual') && !is_known('temp')",
+                  "class": "Source"
+                },
+                {
+                  "type": "trauma",
+                  "requestCondition": "!is_known('trauma')",
+                  "class": "Source"
+                },
+                {
+                  "type": "gcs_e",
+                  "requestCondition": "!is_known('gcs_e')",
+                  "class": "Source"
+                },
+                {
+                  "type": "gcs_m",
+                  "requestCondition": "!is_known('gcs_m')",
+                  "class": "Source"
+                },
+                {
+                  "type": "gcs_v",
+                  "requestCondition": "!is_known('gcs_v')",
+                  "class": "Source"
+                },
+                {
+                  "type": "mobility",
+                  "requestCondition": "!is_known('mobility')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 367.67480694278953,
+                  "y": 96.96193158990675
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showButton": false
+                }
+              },
+              "caption": "Check glucose",
+              "name": "check_glucose_available",
+              "preCondition": "is_completed('vitals') && tews<7   &&   glucose_concern  &&   !is_known('glucose_available')",
+              "waitCondition": "is_finished('vitals')",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "glucose_available",
+                  "requestCondition": "!is_known('glucose_available')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 503.76836639660473,
+                  "y": 98.24583309418804
+                }
+              },
+              "caption": "Blood Glucose",
+              "name": "check_glucose",
+              "preCondition": "is_completed('check_glucose_available') && glucose_available",
+              "waitCondition": "is_finished('check_glucose_available')",
+              "sources": [
+                {
+                  "type": "glucose_value",
+                  "requestCondition": "!is_known('glucose_value')",
+                  "class": "Source"
+                },
+                {
+                  "type": "glucose_unit",
+                  "requestCondition": "!is_known('glucose_unit')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 358.91987178078466,
+              "y": 88.6836277422479
+            }
+          },
+          "caption": "Screen 4",
+          "name": "screen4",
+          "preCondition": "is_completed('screen3') && signs_emergency == 0",
+          "waitCondition": "is_finished('screen3')",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 332.8161575148285,
+                  "y": 109.02698063046313
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Check glucose",
+              "name": "check_glucose_available",
+              "preCondition": "is_completed('condition') && signs_very_urgent==9 || signs_very_urgent==1",
+              "waitCondition": "is_finished('condition')",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "glucose_available",
+                  "requestCondition": "!is_known('glucose_available')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 494.7990671039287,
+                  "y": 107.61502893267405
+                }
+              },
+              "caption": "Blood glucose",
+              "name": "check_glucose",
+              "preCondition": "is_completed('check_glucose_available') && glucose_available",
+              "waitCondition": "is_finished('check_glucose_available')",
+              "sources": [
+                {
+                  "type": "glucose_value",
+                  "requestCondition": "!is_known('glucose_value')",
+                  "class": "Source"
+                },
+                {
+                  "type": "glucose_unit",
+                  "requestCondition": "!is_known('glucose_unit')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 334.04060831932804,
+                  "y": 237.57551588420893
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true,
+                    "showRequestedOnly": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Oxygen",
+              "name": "check_o2",
+              "preCondition": "is_completed('condition') && signs_very_urgent==4",
+              "waitCondition": "is_finished('condition')",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "o2_available",
+                  "requestCondition": "!is_known('o2_available')",
+                  "class": "Source"
+                },
+                {
+                  "type": "o2sats",
+                  "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+                  "class": "Source"
+                },
+                {
+                  "type": "o2sats_option",
+                  "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 119.29732896139072,
+                  "y": 107.6592879387257
+                }
+              },
+              "caption": "Very urgent condition",
+              "name": "condition",
+              "autonomous": true,
+              "tasks": [
+                {
+                  "meta": {
+                    "pos": {
+                      "x": 132.599142363141,
+                      "y": 166.71287155427837
+                    },
+                    "ui": {
+                      "sources": {
+                        "useButtons": true
+                      },
+                      "showComplete": false
+                    }
+                  },
+                  "caption": "Very urgent conditions",
+                  "name": "check_very_urgent",
+                  "autonomous": true,
+                  "sources": [
+                    {
+                      "type": "signs_very_urgent",
+                      "requestCondition": "!is_known('signs_very_urgent')",
+                      "class": "Source"
+                    }
+                  ],
+                  "class": "Enquiry"
+                },
+                {
+                  "meta": {
+                    "pos": {
+                      "x": 281.28734954970116,
+                      "y": 168.44289201245687
+                    }
+                  },
+                  "caption": "Please specify",
+                  "name": "specify_condition",
+                  "preCondition": "is_completed('check_very_urgent') && includes([13,28], signs_very_urgent)",
+                  "waitCondition": "is_finished('check_very_urgent')",
+                  "sources": [
+                    {
+                      "type": "signs_very_urgent_specify",
+                      "requestCondition": "!is_known('signs_very_urgent_specify')",
+                      "class": "Source"
+                    }
+                  ],
+                  "class": "Enquiry"
+                }
+              ],
+              "class": "Plan"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 513.8554727859175,
+              "y": 87.57686373091533
+            }
+          },
+          "caption": "Screen 5",
+          "name": "screen5",
+          "preCondition": "is_completed('screen4') && signs_very_urgent==0",
+          "waitCondition": "is_finished('screen4')",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 104.1925641840952,
+                  "y": 98.02989949691516
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Urgent conditions",
+              "name": "check_urgent",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "signs_urgent",
+                  "requestCondition": "!is_known('signs_urgent')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 238.43573773251404,
+                  "y": 96.63748842690009
+                }
+              },
+              "caption": "Specify pain",
+              "name": "specify_pain",
+              "preCondition": "is_completed('check_urgent') && signs_urgent == 7",
+              "waitCondition": "is_finished('check_urgent')",
+              "sources": [
+                {
+                  "type": "signs_urgent_specify",
+                  "requestCondition": "!is_known('signs_urgent_specify')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 669.4192198370191,
+              "y": 87.67711008728241
+            }
+          },
+          "caption": "Screen 5A",
+          "name": "screen5a",
+          "preCondition": "is_completed('screen5') && signs_urgent==0",
+          "waitCondition": "is_finished('screen5')",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 145.55984670212902,
+                  "y": 152.16969627400158
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Non-urgent conditions",
+              "name": "check_non_urgent",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "signs_non_urgent",
+                  "requestCondition": "!is_known('signs_non_urgent')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 315.0348452672573,
+                  "y": 153.45359777828284
+                }
+              },
+              "caption": "Specify condition",
+              "name": "specify_condition",
+              "preCondition": "is_completed('check_non_urgent') && !includes([6,7], signs_non_urgent)",
+              "waitCondition": "is_finished('check_non_urgent')",
+              "sources": [
+                {
+                  "type": "signs_other",
+                  "requestCondition": "!is_known('signs_other')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        }
+      ],
+      "class": "Plan"
+    },
+    {
+      "meta": {
+        "pos": {
+          "x": 258.5135126876518,
+          "y": 130.92883447651374
+        },
+        "ui": {
+          "decision": {
+            "singleChoice": true,
+            "showRecommendedOnly": true,
+            "hideUnrecommended": true
+          },
+          "order": 1
+        }
+      },
+      "caption": "Recommended Destination",
+      "description": "This page shows the type of the hospital that will be recommended.  In the implemented solution, a hospital will be named.\n\n${is_known('rr') ? 'TEWS: ' + tews : ''}",
+      "name": "destination",
+      "preCondition": "is_completed('screens') && (!is_known('age') || age>=12)",
+      "waitCondition": "is_finished('screens')",
+      "candidates": [
+        {
+          "caption": "Tertiary health facility",
+          "description": "Referral / teaching hospitals",
+          "name": "tertiary",
+          "recommendCondition": "net_support('tertiary')>0",
+          "arguments": [
+            {
+              "caption": "emergency sign: ${caption('signs_emergency')}",
+              "description": "Emergency signs are a strong argument for directing to tertiary care",
+              "support": 1,
+              "activeCondition": "is_known('signs_emergency') && signs_emergency!=0",
+              "class": "Argument"
+            },
+            {
+              "caption": "pregnant and very high blood pressure (sbp = ${sbp})",
+              "description": "if sbp>150 and woman is pregnant send to nearest TRH",
+              "support": 1,
+              "activeCondition": "sbp>150 && possible_pregnancy_issue",
+              "class": "Argument"
+            },
+            {
+              "caption": "pregnant and not alert",
+              "support": 1,
+              "activeCondition": "possible_pregnancy_issue && (is_known('avpu') && avpu!=\"Alert\")",
+              "class": "Argument"
+            },
+            {
+              "caption": "pregnant and dangerous glucose levels (${glucose} mmol/l)",
+              "support": 1,
+              "activeCondition": "possible_pregnancy_issue && (is_known('avpu') && avpu!='Alert') && (is_known('glucose') && (glucose>=11 || glucose<=3))",
+              "class": "Argument"
+            },
+            {
+              "caption": "high TEWS score (${tews})",
+              "description": "A patient with a TEWS score of 7 and above should go to a tertiary hospital",
+              "support": 3,
+              "activeCondition": "is_known('trauma') && tews>6",
+              "class": "Argument"
+            },
+            {
+              "caption": "Pregnant and unresponsive/seizures or delivery problems",
+              "support": 1,
+              "activeCondition": "signs_pregnant_urgent",
+              "class": "Argument"
+            },
+            {
+              "caption": "o2sats (${o2sats}) > 90",
+              "support": -1,
+              "activeCondition": "is_known('o2sats') && o2sats>90",
+              "class": "Argument"
+            },
+            {
+              "caption": "pregnant and tews >= 7",
+              "support": 1,
+              "activeCondition": "possible_pregnancy_issue && tews>=7",
+              "class": "Argument"
+            },
+            {
+              "caption": "dangerous glucose level: ${glucose} mmol/l",
+              "support": 1,
+              "activeCondition": "is_known('glucose') && (glucose<=3 || glucose>=11)",
+              "class": "Argument"
+            },
+            {
+              "caption": "pregnant and abdominal trauma",
+              "support": 1,
+              "activeCondition": "signs_pregnant == 6",
+              "class": "Argument"
+            },
+            {
+              "caption": "shortness of breath and o2 sats ≤ 90",
+              "support": 1,
+              "activeCondition": "signs_very_urgent==4 && o2sats<=90",
+              "class": "Argument"
+            }
+          ],
+          "class": "Candidate"
+        },
+        {
+          "caption": "Secondary  health facility",
+          "description": "District Hospital + specialised DH into Maternity, GBV, palliative care, Mental health",
+          "name": "secondary",
+          "recommendCondition": "net_support('secondary')>0 && net_support('tertiary')<=0",
+          "arguments": [
+            {
+              "caption": "medium TEWS score (${tews})",
+              "description": "a patient with a TEWS score or 5 or 6 should be directed to secondary care ",
+              "support": 1,
+              "activeCondition": "tews==5 || tews==6",
+              "class": "Argument"
+            },
+            {
+              "caption": "very urgent sign: ${caption('signs_very_urgent')}",
+              "support": 1,
+              "activeCondition": "is_known('signs_very_urgent') && signs_very_urgent!=0",
+              "class": "Argument"
+            },
+            {
+              "caption": "o2sats (${o2sats}) > 90",
+              "support": 1,
+              "activeCondition": "is_known('o2sats') && o2sats>90",
+              "class": "Argument"
+            }
+          ],
+          "class": "Candidate"
+        },
+        {
+          "caption": "Primary health facility or treat on site",
+          "description": "Medicalised HC, Health centres & Health posts",
+          "name": "primary",
+          "recommendCondition": "net_support('primary')>0 && net_support('tertiary')<=0 && net_support('secondary')<=0",
+          "arguments": [
+            {
+              "caption": "urgent sign: ${caption('signs_urgent')}",
+              "support": 1,
+              "activeCondition": "is_known('signs_urgent') && signs_urgent!=0",
+              "class": "Argument"
+            },
+            {
+              "caption": "pregnant and TEWS<7",
+              "support": 1,
+              "activeCondition": "possible_pregnancy_issue && is_known('rr') && tews<7",
+              "class": "Argument"
+            },
+            {
+              "caption": "low TEWS score (${tews}) and no urgent signs",
+              "description": "A TEWS score less than 5 is considered low",
+              "support": 1,
+              "activeCondition": "tews<5 && signs_very_urgent==0 && signs_urgent==0",
+              "class": "Argument"
+            }
+          ],
+          "class": "Candidate"
+        },
+        {
+          "caption": "Private hospital",
+          "name": "private",
+          "recommendCondition": "net_support('private')>0",
+          "class": "Candidate"
+        },
+        {
+          "caption": "Morgue",
+          "name": "morgue",
+          "recommendCondition": "net_support('morgue')>0",
+          "arguments": [
+            {
+              "caption": "patient is deceased",
+              "support": "++",
+              "activeCondition": "is_known('alive') && !alive",
+              "class": "Argument"
+            }
+          ],
+          "class": "Candidate"
+        }
+      ],
+      "class": "Decision"
+    },
+    {
+      "meta": {
+        "pos": {
+          "x": 526.1705787764074,
+          "y": 53.05115224620897
+        }
+      },
+      "caption": "Screen 6",
+      "name": "screen6",
+      "preCondition": "num_completed(['destination','screen6a'])>0 && alive    &&    !is_known('rr')",
+      "waitCondition": "num_finished(['destination','screen6a'])==2",
+      "autonomous": true,
+      "tasks": [
+        {
+          "meta": {
+            "pos": {
+              "x": 122.62769193768762,
+              "y": 136.41439466351338
+            },
+            "ui": {
+              "sources": {
+                "useButtons": true
+              }
+            }
+          },
+          "caption": "TEWS",
+          "description": "${is_known('gcs') ? 'GCS: ' + gcs : ''}",
+          "name": "vitals",
+          "sources": [
+            {
+              "meta": {
+                "range": {
+                  "max": 60,
+                  "min": 0
+                }
+              },
+              "type": "rr",
+              "requestCondition": "!is_known('rr')",
+              "class": "Source"
+            },
+            {
+              "meta": {
+                "range": {
+                  "max": 300,
+                  "min": 0
+                }
+              },
+              "type": "hr",
+              "requestCondition": "!is_known('hr')",
+              "class": "Source"
+            },
+            {
+              "meta": {
+                "range": {
+                  "max": 250,
+                  "min": 0
+                }
+              },
+              "type": "sbp",
+              "requestCondition": "!is_known('sbp')",
+              "class": "Source"
+            },
+            {
+              "meta": {
+                "range": {
+                  "max": 250,
+                  "min": 0
+                }
+              },
+              "type": "dbp",
+              "requestCondition": "!is_known('dbp')",
+              "class": "Source"
+            },
+            {
+              "type": "temp_qual",
+              "requestCondition": "!is_known('temp_qual') && !is_known('temp')",
+              "class": "Source"
+            },
+            {
+              "type": "trauma",
+              "requestCondition": "!is_known('trauma')",
+              "class": "Source"
+            },
+            {
+              "type": "gcs_e",
+              "requestCondition": "!is_known('gcs_e')",
+              "class": "Source"
+            },
+            {
+              "type": "gcs_m",
+              "requestCondition": "!is_known('gcs_m')",
+              "class": "Source"
+            },
+            {
+              "type": "gcs_v",
+              "requestCondition": "!is_known('gcs_v')",
+              "class": "Source"
+            },
+            {
+              "type": "mobility",
+              "requestCondition": "!is_known('mobility')",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 508.0682529092846,
+              "y": 235.32973987007486
+            },
+            "ui": {
+              "sources": {
+                "useButtons": true
+              }
+            }
+          },
+          "caption": "Blood Glucose",
+          "name": "check_glucose_available",
+          "preCondition": "num_completed(['vitals','check_o2'])>0 && !is_known('glucose_available')",
+          "waitCondition": "num_finished(['vitals','check_o2'])==2",
+          "autonomous": true,
+          "sources": [
+            {
+              "type": "glucose_available",
+              "requestCondition": "!is_known('glucose_available')",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 649.0517173648524,
+              "y": 235.82985150039994
+            }
+          },
+          "caption": "Blood glucose",
+          "name": "check_glucose",
+          "preCondition": "is_completed('check_glucose_available') && glucose_available",
+          "waitCondition": "is_finished('check_glucose_available')",
+          "sources": [
+            {
+              "type": "glucose_value",
+              "requestCondition": "!is_known('glucose_value')",
+              "class": "Source"
+            },
+            {
+              "type": "glucose_unit",
+              "requestCondition": "!is_known('glucose_unit')",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 379.0756493538092,
+              "y": 88.827672515312
+            },
+            "ui": {
+              "sources": {
+                "useButtons": true,
+                "showRequestedOnly": true
+              },
+              "showComplete": false
+            }
+          },
+          "caption": "Oxygen",
+          "name": "check_o2",
+          "preCondition": "is_completed('vitals') && !is_known('o2sats')",
+          "waitCondition": "is_finished('vitals')",
+          "autonomous": true,
+          "sources": [
+            {
+              "type": "o2_available",
+              "requestCondition": "!is_known('o2_available')",
+              "class": "Source"
+            },
+            {
+              "type": "o2sats",
+              "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+              "class": "Source"
+            },
+            {
+              "type": "o2sats_option",
+              "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        }
+      ],
+      "class": "Plan"
+    },
+    {
+      "meta": {
+        "pos": {
+          "x": 474.7647003215296,
+          "y": 215.1332479272962
+        }
+      },
+      "caption": "Screen 7",
+      "name": "screen7",
+      "preCondition": "is_completed('destination') && !alive",
+      "waitCondition": "is_finished('destination')",
+      "autonomous": true,
+      "tasks": [
+        {
+          "meta": {
+            "pos": {
+              "x": 110.89450608653462,
+              "y": 89.25852256421912
+            },
+            "ui": {
+              "sources": {
+                "useButtons": true
+              }
+            }
+          },
+          "caption": "Deceased patient",
+          "name": "record_cod",
+          "sources": [
+            {
+              "type": "cod",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        }
+      ],
+      "class": "Plan"
+    },
+    {
+      "meta": {
+        "pos": {
+          "x": 646.3952872282919,
+          "y": 128.592482251001
+        }
+      },
+      "caption": "Follow up",
+      "name": "follow_up",
+      "preCondition": "num_completed(['screen6','destination'])>0 && alive",
+      "waitCondition": "num_finished(['screen6','destination'])==2",
+      "autonomous": true,
+      "tasks": [
+        {
+          "meta": {
+            "pos": {
+              "x": 54.07042777832743,
+              "y": 57.60573692567041
+            }
+          },
+          "caption": "Screen 3",
+          "name": "screen3",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 82.04095389348461,
+                  "y": 81.62834006015831
+                },
+                "ui": {
+                  "order": 1
+                }
+              },
+              "caption": "Other trauma information",
+              "name": "screen3b",
+              "preCondition": "(is_known('signs_emergency') && signs_emergency>=10 && signs_emergency<=23) || (is_known('signs_very_urgent') && signs_very_urgent>=5 && signs_very_urgent<=8) || trauma",
+              "sources": [
+                {
+                  "type": "mechanism",
+                  "class": "Source"
+                },
+                {
+                  "type": "body_part",
+                  "class": "Source"
+                },
+                {
+                  "type": "injury_type",
+                  "class": "Source"
+                },
+                {
+                  "type": "trauma_cause",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 232.20357607035453,
+                  "y": 182.3378312105013
+                }
+              },
+              "caption": "Specify injury type",
+              "name": "specify_injury_type",
+              "preCondition": "is_completed('screen3b') && is_known('injury_type') && includes('injury_type',9)",
+              "waitCondition": "is_finished('screen3b')",
+              "sources": [
+                {
+                  "type": "injury_type_others",
+                  "requestCondition": "!is_known('injury_type_others')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 235.64471728433625,
+                  "y": 81.40844369078101
+                }
+              },
+              "caption": "RTI details",
+              "name": "specify_rti",
+              "preCondition": "is_completed('screen3b') && is_known('mechanism') && mechanism==3",
+              "waitCondition": "is_finished('screen3b')",
+              "sources": [
+                {
+                  "type": "mechanism_rta",
+                  "requestCondition": "!is_known('mechanism_rta')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 215.12583746562711,
+              "y": 58.22758078157071
+            }
+          },
+          "caption": "Screen 8",
+          "name": "screen8",
+          "preCondition": "is_completed('screen3') && pregnant==1",
+          "waitCondition": "is_finished('screen3')",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 92.79221170084102,
+                  "y": 93.37662395568015
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  }
+                }
+              },
+              "caption": "Pregnancy related questions",
+              "name": "pregnancy",
+              "sources": [
+                {
+                  "type": "gestational_age",
+                  "class": "Source"
+                },
+                {
+                  "type": "lmp",
+                  "class": "Source"
+                },
+                {
+                  "type": "num_abortions",
+                  "class": "Source"
+                },
+                {
+                  "type": "num_pregnancies",
+                  "class": "Source"
+                },
+                {
+                  "type": "num_live_births",
+                  "class": "Source"
+                },
+                {
+                  "type": "hr_fetal",
+                  "class": "Source"
+                },
+                {
+                  "type": "pregnancy_features",
+                  "class": "Source"
+                },
+                {
+                  "type": "dilation",
+                  "class": "Source"
+                },
+                {
+                  "type": "delivery",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 236.71685350609954,
+                  "y": 94.3941285813442
+                }
+              },
+              "caption": "Delivery details",
+              "name": "check_delivery",
+              "preCondition": "is_completed('pregnancy') && delivery",
+              "waitCondition": "is_finished('pregnancy')",
+              "sources": [
+                {
+                  "type": "delivery_features",
+                  "class": "Source"
+                },
+                {
+                  "type": "apgar1",
+                  "class": "Source"
+                },
+                {
+                  "type": "apgar2",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 219.92522773349205,
+              "y": 204.98182606171179
+            }
+          },
+          "caption": "Screen 9",
+          "name": "screen9",
+          "preCondition": "is_completed('screen3')",
+          "waitCondition": "is_finished('screen3')",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 260.44806089938345,
+                  "y": 148.61434751766274
+                }
+              },
+              "caption": "Past medical history",
+              "name": "check_hx",
+              "preCondition": "num_completed(['check_pain','pain_details'])>0",
+              "waitCondition": "num_finished(['check_pain','pain_details'])==2",
+              "sources": [
+                {
+                  "type": "hx",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 67.3310659814656,
+                  "y": 149.05571772588584
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Pain information",
+              "name": "check_pain",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "pain_present",
+                  "requestCondition": "!is_known('pain_present')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 458.3720009428122,
+                  "y": 147.34284064271108
+                }
+              },
+              "caption": "Substance history",
+              "name": "check_social_hx",
+              "preCondition": "is_completed('check_hx')",
+              "waitCondition": "is_finished('check_hx')",
+              "sources": [
+                {
+                  "type": "social_hx",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 157.23201020991723,
+                  "y": 37.28844416761393
+                }
+              },
+              "caption": "Pain details",
+              "name": "pain_details",
+              "preCondition": "is_completed('check_pain') && pain_present",
+              "waitCondition": "is_finished('check_pain')",
+              "sources": [
+                {
+                  "type": "pain_location",
+                  "requestCondition": "!is_known('pain_location')",
+                  "class": "Source"
+                },
+                {
+                  "type": "pain_score",
+                  "requestCondition": "!is_known('pain_score')",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 429.0696000255002,
+              "y": 59.7326820224456
+            }
+          },
+          "caption": "Screen 10",
+          "name": "screen10",
+          "preCondition": "num_completed(['screen9','screen8'])>0 && !is_known('o2sats')",
+          "waitCondition": "num_finished(['screen9','screen8'])==2",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 82.06592673748392,
+                  "y": 73.17772590863618
+                },
+                "ui": {
+                  "sources": {
+                    "useButtons": true,
+                    "showRequestedOnly": true
+                  },
+                  "showComplete": false
+                }
+              },
+              "caption": "Oxygen",
+              "name": "check_o2",
+              "autonomous": true,
+              "sources": [
+                {
+                  "type": "o2_available",
+                  "requestCondition": "!is_known('o2_available')",
+                  "class": "Source"
+                },
+                {
+                  "type": "o2sats",
+                  "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+                  "class": "Source"
+                },
+                {
+                  "type": "o2sats_option",
+                  "requestCondition": "is_known('o2_available') && o2_available && !(is_known('o2sats') && is_known('o2sats_option'))",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 231.51002715190782,
+                  "y": 73.1777259086362
+                }
+              },
+              "caption": "Measure glucose",
+              "name": "mopup_glucose",
+              "preCondition": "is_completed('check_o2')",
+              "waitCondition": "is_finished('check_o2')",
+              "autonomous": true,
+              "tasks": [
+                {
+                  "meta": {
+                    "pos": {
+                      "x": 109.95838304064728,
+                      "y": 68.23748909251803
+                    },
+                    "ui": {
+                      "sources": {
+                        "useButtons": true
+                      },
+                      "showComplete": false
+                    }
+                  },
+                  "caption": "Blood glucose",
+                  "name": "check_glucose_available",
+                  "preCondition": "!is_known('glucose_value')",
+                  "autonomous": true,
+                  "sources": [
+                    {
+                      "type": "glucose_available",
+                      "requestCondition": "!is_known('glucose_available')",
+                      "class": "Source"
+                    }
+                  ],
+                  "class": "Enquiry"
+                },
+                {
+                  "meta": {
+                    "pos": {
+                      "x": 298.94581286669865,
+                      "y": 67.09842547107438
+                    }
+                  },
+                  "caption": "Blood glucose",
+                  "name": "check_glucose",
+                  "preCondition": "is_completed('check_glucose_available') && glucose_available",
+                  "waitCondition": "is_finished('check_glucose_available')",
+                  "sources": [
+                    {
+                      "type": "glucose_value",
+                      "requestCondition": "!is_known('glucose_value')",
+                      "class": "Source"
+                    },
+                    {
+                      "type": "glucose_unit",
+                      "requestCondition": "!is_known('glucose_unit')",
+                      "class": "Source"
+                    }
+                  ],
+                  "class": "Enquiry"
+                }
+              ],
+              "class": "Plan"
+            }
+          ],
+          "class": "Plan"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 577.2939485752446,
+              "y": 206.8213849022833
+            }
+          },
+          "caption": "Screen 11",
+          "name": "screen11",
+          "preCondition": "num_completed(['screen10','screen8','screen9'])>0",
+          "waitCondition": "num_finished(['screen10','screen8','screen9'])==3",
+          "autonomous": true,
+          "tasks": [
+            {
+              "meta": {
+                "pos": {
+                  "x": 109.79559197987788,
+                  "y": 88.45680763742033
+                }
+              },
+              "caption": "Management",
+              "name": "report_management",
+              "sources": [
+                {
+                  "type": "management",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 307.33143624156963,
+                  "y": 89.25852256421912
+                }
+              },
+              "caption": "Tourniquet details",
+              "name": "tourniquet_details",
+              "preCondition": "is_completed('report_management') && includes(management, 10)",
+              "waitCondition": "is_finished('report_management')",
+              "sources": [
+                {
+                  "type": "management_tourniquet",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            },
+            {
+              "meta": {
+                "pos": {
+                  "x": 307.33143624156963,
+                  "y": 189.40283989815853
+                }
+              },
+              "caption": "IO Infusion details",
+              "name": "io_details",
+              "preCondition": "is_completed('report_management') && includes(management, 13)",
+              "waitCondition": "is_finished('report_management')",
+              "sources": [
+                {
+                  "type": "management_infusion",
+                  "class": "Source"
+                }
+              ],
+              "class": "Enquiry"
+            }
+          ],
+          "class": "Plan"
+        }
+      ],
+      "class": "Plan"
+    },
+    {
+      "meta": {
+        "pos": {
+          "x": 195.75160094143695,
+          "y": 34.4288153815523
+        }
+      },
+      "caption": "In preparation",
+      "description": "This guideline is for adults.\n\nTODO: the paediatric version is in development",
+      "name": "ineligible",
+      "preCondition": "is_completed('screens') && is_known('age') && age<12",
+      "waitCondition": "is_finished('screens')",
+      "class": "Action"
+    },
+    {
+      "meta": {
+        "pos": {
+          "x": 374.229920481321,
+          "y": 53.09280444343426
+        }
+      },
+      "caption": "Screen 6a",
+      "description": "diabetic and unresponsive patient - take blood glucose before vital signs",
+      "name": "screen6a",
+      "preCondition": "is_completed('destination') && glucose_concern && !is_known('glucose_available')",
+      "waitCondition": "is_finished('destination')",
+      "autonomous": true,
+      "tasks": [
+        {
+          "meta": {
+            "pos": {
+              "x": 362.71820396409214,
+              "y": 226.8579816376521
+            },
+            "ui": {
+              "sources": {
+                "useButtons": true
+              },
+              "showComplete": false
+            }
+          },
+          "caption": "Blood glucose",
+          "name": "check_glucose_available",
+          "autonomous": true,
+          "sources": [
+            {
+              "type": "glucose_available",
+              "requestCondition": "!is_known('glucose_available')",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        },
+        {
+          "meta": {
+            "pos": {
+              "x": 496.8937002577338,
+              "y": 227.02983117773852
+            }
+          },
+          "caption": "Blood glucose",
+          "name": "check_glucose",
+          "preCondition": "is_completed('check_glucose_available') && glucose_available",
+          "waitCondition": "is_finished('check_glucose_available')",
+          "sources": [
+            {
+              "type": "glucose_value",
+              "requestCondition": "!is_known('glucose_value')",
+              "class": "Source"
+            },
+            {
+              "type": "glucose_unit",
+              "requestCondition": "!is_known('glucose_unit')",
+              "class": "Source"
+            }
+          ],
+          "class": "Enquiry"
+        }
+      ],
+      "class": "Plan"
+    }
+  ],
+  "class": "Plan"
+}
